@@ -1,24 +1,6 @@
 require('dotenv').config()
 
 
-//_______________________ ┏  Info  ┓ _______________________\\
-//
-//   Credit : AlipBot
-//   
-//   Note 
-//   Jangan Jual SC ini ,
-//   Jangan Buang Text ini,
-//   Siapa Mahu Upload Jangan Lupa Credit :),
-//   Siapa Tidak Letak Credit Akan Ambil Tindakan
-//   
-//_______________________ ┏ Make By AlipBot ┓ _______________________\\
-
-
-
-
-
-//_______________________ ┏  Main Setting  ┓ _______________________\\
-
 creator = '乂𝘼𝙡𝙞𝙥乂' // Nama 
 port = 8080 //port host
 LimitApikey = 200 // Limit Apikey default
