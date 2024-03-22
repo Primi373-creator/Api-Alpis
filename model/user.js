@@ -1,26 +1,40 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
+    apikey: {
+        type: String
     },
     email: {
         type: String,
         required: true,
     },
-    password: {
-        type: String,
-    },
     isVerified: {
         type: Boolean,
         default: false,
     },
-    apikey: { 
-        type: String 
-    },
     limitApikey: {
-         type: Number 
+        type: Number
+    },
+    password: {
+        type: String,
+    },
+    phoneNumber: {
+        type: String,
+        required: false,
+    },
+    premium: {
+        type: Boolean,
+        default: false,
+    },
+    premiumEndDate: {
+        type: Date,
+    },
+    premiumInitDate: {
+        type: Date,
+    },
+    username: {
+        type: String,
+        required: true,
     },
 });
 

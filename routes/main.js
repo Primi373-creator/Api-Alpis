@@ -1,19 +1,5 @@
 __path = process.cwd()
 
-//_______________________ ┏  Info  ┓ _______________________\\
-//
-//   Credit : AlipBot
-//   
-//   Note 
-//   Jangan Jual SC ini ,
-//   Jangan Buang Text ini,
-//   Siapa Mahu Upload Jangan Lupa Credit :),
-//   Siapa Tidak Letak Credit Akan Ambil Tindakan
-//   
-//_______________________ ┏ Make By AlipBot ┓ _______________________\\
-
-//―――――――――――――――――――――――――――――――――――――――――― ┏  Modules ┓ ―――――――――――――――――――――――――――――――――――――――――― \\
-
 require('../settings');
 const express = require('express');
 const router = express.Router();
@@ -32,7 +18,7 @@ function checkAuth(req, res, next) {
         next();
     } else {
         req.flash('error_messages', "Please Login to continue !");
-        res.redirect('/login');
+        res.redirect('/users/login');
     }
 }
 
@@ -60,14 +46,38 @@ router.get('/docs',  checkAuth, async (req, res) => {
 router.get("/logout", (req, res) => {
     req.logout(req.user, err => {
       if(err) return next(err);
-      res.redirect("/login");
+      res.redirect("/users/login");
     });
   });
+
+
+router.get('/admin/get_update', async (req, res) => {
+  try {
+    const jsonResponse = {
+      status: true,
+      creator: 'Cipher',
+      data: {
+        key: 'Cipher',
+        message: {
+          text: '*Api info:* https://api.alpha-md.rf.gd/docs\n*contact*: +2348114860536',
+          contextInfo: {
+            externalAdReply: {
+              sourceUrl: 'https://chat.whatsapp.com/FCfSLTySyqz1c7YPJD2KSm',
+              title: 'join our WhatsApp Group for updates!!'
+            }
+          }
+        }
+      }
+    };
+    res.json(jsonResponse);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: false, error: 'Internal Server Error' });
+  }
+});
 
 
 
 router.use(authRoutes);
 router.use(apiRoutes);
 module.exports = router;
-
-
